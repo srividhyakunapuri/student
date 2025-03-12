@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details Lookup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Enter Student ID to Get Details</h2>
+    <label for="studentId">Student ID:</label>
+    <input type="text" id="studentId" placeholder="Enter Student ID">
+    <button onclick="getStudentDetails()">Get Details</button>
+
+    <div id="result">
+        <h3>Student Details:</h3>
+        <p><strong>ID:</strong> <span id="resultId"></span></p>
+        <p><strong>First Name:</strong> <span id="resultFirstName"></span></p>
+        <p><strong>Age:</strong> <span id="resultAge"></span></p>
+        <p><strong>Gender:</strong> <span id="resultGender"></span></p>
+        <p><strong>Phone Number:</strong> <span id="resultPhoneNumber"></span></p>
+    </div>
+
+    <script>
+        const students = [
+            { id: 101, firstName: 'John', age: 21, gender: 'Male', phnno: '1234567890' },
+            { id: 102, firstName: 'Rahul', age: 21, gender: 'Male', phnno: '9876543210' },
+            { id: 103, firstName: 'Aaradhya', age: 22, gender: 'Female', phnno: '1431431431' },
+            { id: 104, firstName: 'Sneha', age: 23, gender: 'Female', phnno: '2345262538' },
+            { id: 105, firstName: 'Ammu', age: 20, gender: 'Female', phnno: '1084654783' },
+            { id: 106, firstName: 'Nidhi', age: 24, gender: 'Female', phnno: '8769587345' },
+            { id: 107, firstName: 'Vidhya', age: 22, gender: 'Female', phnno: '2435798765' },
+            { id: 108, firstName: 'Priya', age: 20, gender: 'Female', phnno: '1122334455' },
+            { id: 109, firstName: 'Raj', age: 25, gender: 'Male', phnno: '3344556677' },
+            { id: 110, firstName: 'Vikas', age: 23, gender: 'Male', phnno: '4455667788' },
+            { id: 111, firstName: 'Shreya', age: 22, gender: 'Female', phnno: '5566778899' },
+            { id: 112, firstName: 'Anjali', age: 21, gender: 'Female', phnno: '6677889900' },
+            { id: 113, firstName: 'Ravi', age: 24, gender: 'Male', phnno: '7788990011' },
+            { id: 114, firstName: 'Meera', age: 23, gender: 'Female', phnno: '8899001122' },
+            { id: 115, firstName: 'Karan', age: 25, gender: 'Male', phnno: '9900112233' },
+            { id: 116, firstName: 'Sonia', age: 22, gender: 'Female', phnno: '1022334455' },
+            { id: 117, firstName: 'Sameer', age: 24, gender: 'Male', phnno: '2133445566' },
+            { id: 118, firstName: 'Ritika', age: 23, gender: 'Female', phnno: '3244556677' },
+            { id: 119, firstName: 'Amit', age: 21, gender: 'Male', phnno: '4355667788' },
+            { id: 120, firstName: 'Deepika', age: 22, gender: 'Female', phnno: '5466778899' },
+            { id: 121, firstName: 'Arjun', age: 23, gender: 'Male', phnno: '6577889900' },
+            { id: 122, firstName: 'Simran', age: 22, gender: 'Female', phnno: '7688990011' },
+            { id: 123, firstName: 'Mohit', age: 24, gender: 'Male', phnno: '8799001122' },
+            { id: 124, firstName: 'Alisha', age: 21, gender: 'Female', phnno: '9900112233' }
+        ];
+
+        function getStudentDetails() {
+            const studentId = document.getElementById('studentId').value;
+            const student = students.find(s => s.id === parseInt(studentId));
+
+            if (student) {
+                document.getElementById('resultId').textContent = student.id;
+                document.getElementById('resultFirstName').textContent = student.firstName;
+                document.getElementById('resultAge').textContent = student.age;
+                document.getElementById('resultGender').textContent = student.gender;
+                document.getElementById('resultPhoneNumber').textContent = student.phnno;
+                document.getElementById('result').style.display = 'block';
+            } else {
+                alert('Student not found!');
+                document.getElementById('result').style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>
